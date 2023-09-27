@@ -12,6 +12,8 @@ LiveIndexingBatchSize means that after `X` number of posts, it will index those 
 
 On extremely active/busy servers having the index run after every post can cause a large volume of traffic to Elasticsearch, potentially exhausting the connections and hogging resources.
 
+Large volume here would be more than 1 posts per second, on average. 
+
 ### What impacts does changing this value have?
 
 The primary impact is that a post will be indexed into Elasticsearch after a threshold of posts is met and made searchable within Mattermost. In the configure guide below, we suggest setting this to the average # of posts every 10-20 seconds. So, if you make a post, you cannot find it via search for 10-20 seconds, on average. Realistically, no users should see or feel this impact due to the limited amount of users who are actively **searching** for a post this fast. You can set this to a lower average or higher average as well. Depending on your Elasticsearch server specs. 
